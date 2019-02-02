@@ -14,5 +14,7 @@ class Message {
     var date : Date = Date.init()
     var sender : String = ""
     var reciever : String = ""
+    var isVoice : Bool = false
+    var id : String = ""
     
 }

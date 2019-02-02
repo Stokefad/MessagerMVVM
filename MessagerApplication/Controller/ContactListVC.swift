@@ -68,6 +68,11 @@ class ContactListVC : UIViewController, UITableViewDelegate, UITableViewDataSour
             destVC.currentContact = contactList[(tableView.indexPathForSelectedRow?.row)!]
             destVC.currentUser = currentUser
         }
+        else if segue.identifier == "goToProfile" {
+            let destVC = segue.destination as! ProfileVC
+            
+            destVC.currentUser = currentUser.email
+        }
         else {
             let destVC = segue.destination as! AddContactVC
             
@@ -76,5 +81,8 @@ class ContactListVC : UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    @IBAction func profileButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "goToProfile", sender: self)
+    }
     
 }
